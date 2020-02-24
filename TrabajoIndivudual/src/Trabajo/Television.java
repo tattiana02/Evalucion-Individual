@@ -2,17 +2,17 @@ package Trabajo;
 
 public class Television extends Electrodomestico{
 	
-	int resolución; 
+	int resolucion; 
 	boolean sintonizadorTDT;
 
-	public Television(int precioBase, String color, String consumoEnergetico, int peso, int resolucion, boolean sintonizadorTDT) {
+	public Television(int precioBase, String color, char consumoEnergetico, int peso, int resolucion, boolean sintonizadorTDT) {
 		super(precioBase, color, consumoEnergetico, peso);
-		this.resolución = resolucion;
+		this.resolucion = resolucion;
 		this.sintonizadorTDT = sintonizadorTDT; 
 	}
 	
-	public int getResolución() {
-		return resolución;
+	public int getResolucion() {
+		return resolucion;
 	}
 
 	public boolean isSintonizadorTDT() {
@@ -21,19 +21,23 @@ public class Television extends Electrodomestico{
 
 	@Override
 	public String toString() {
-		return "Television [resolución=" + resolución + ", sintonizadorTDT=" + sintonizadorTDT + "]";
+		return "Television [resolución=" + resolucion + ", sintonizadorTDT=" + sintonizadorTDT + "]";
 	}
 	
 	/*public boolean sintonizadorTDT() {
 		boolean retorno = false;
-		if (this.sintonizadorTDT() =20) {
+		if (this.sintonizadorTDT() >=20) {
 			retorno = true;
 		}
 		return retorno;
 	}*/
 	
-	public void precioFinal() {
-		
-	}	
+	public double precioFinal( ) {
+		  double monto = super.precioFinal(resolucion);
+	        if (resolucion >= 40 ) {
+	            monto += precioBase*0.3;
+	        }
+	        return monto;
+	   }
+}	
 	
-}

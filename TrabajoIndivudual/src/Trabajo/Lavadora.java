@@ -2,14 +2,14 @@ package Trabajo;
 
 public class Lavadora extends Electrodomestico{
 	
-	String carga;
+	private int carga;
 
-	public Lavadora(int precioBase, String color, String consumoEnergetico, int peso, String carga) {
+	public Lavadora(int precioBase, String color, char consumoEnergetico, int peso, int carga) {
 		super(precioBase, color, consumoEnergetico, peso);
 		this.carga = carga;
 	}
 
-	public String getCarga() {
+	public int getCarga() {
 		return carga;
 	}
 
@@ -18,7 +18,11 @@ public class Lavadora extends Electrodomestico{
 		return "Lavadora [carga=" + carga + "]";
 	}
 	
-	public void precioFinal() {
-		
-	}		
+	public double precioFinal(String precio) {
+	    double monto = super.precioFinal(carga);
+        if (carga > 30 ) {
+            monto += 50;
+        }
+        return monto;
+    }	
 }
